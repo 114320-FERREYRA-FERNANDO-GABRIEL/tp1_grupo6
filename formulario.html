@@ -54,6 +54,12 @@
             width: 80%; /* Ancho del formulario */
             max-width: 400px; /* Ancho máximo del formulario */
         }
+
+        /* Estilos para los botones */
+        .btn {
+            width: 49%; /* Ancho de los botones */
+            margin-right: 2%; /* Espacio entre los botones */
+        }
     </style>
 </head>
 
@@ -90,7 +96,17 @@
                     <input type="text" class="form-control" id="inputZip" placeholder="Zip/Postal" name="postal">
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary" > <a href="Principal.html"></a>Guardar Cambios</button>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkAcepto">
+                        <label class="form-check-label" for="checkAcepto">
+                            Acepto guardar mis datos
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <!-- Botón Cancelar -->
+                    <button class="btn btn-primary" onclick="window.location.href='Principal.html'">Cancelar</button>
                 </div>
             </form>
         </div>
@@ -106,7 +122,7 @@
                 region: { required: true },
                 ciudad: { required: true },
                 postal: { required: true, minlength: 4 },
-
+                checkAcepto: { required: true }
             },
             messages: {
                 nombre: { required: "Enter a first name." },
@@ -117,26 +133,21 @@
                 region: { required: "Enter a region" },
                 ciudad: { required: "Enter a city" },
                 postal: { required: "Enter a zip/postal" },
-
+                checkAcepto: { required: "Por favor, acepte guardar sus datos." }
             },
             errorClass: "is-invalid",
             validClass: "is-valid",
             submitHandler: function (form) {
-
                 const nombre = $("#inputNombre").val();
                 const apellido = $("#inputApellido").val();
-
                 localStorage.setItem("Nombre", nombre);
                 localStorage.setItem("Apellido", apellido);
-
-                alert("Se cargo con exito");
+                alert("Se cargo con éxito");
                 form.submit();
             },
-
         })
         let nombre = localStorage.getItem("Nombre");
         let apellido = localStorage.getItem("Apellido")
-
     </script>
 </body>
 
