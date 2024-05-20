@@ -28,12 +28,41 @@
             text-align: center;
             padding: 10px 0;
         }
+        /* Estilos adicionales */
+        h1 a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+        }
+        h1 a:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        h1 a::after {
+            content: attr(title);
+            position: absolute;
+            left: 50%;
+            bottom: -30px;
+            transform: translateX(-50%);
+            background-color: #07316d;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s;
+        }
+        h1 a:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Banco La Vanguardia</h1>
+    <h1><a href="Principal.html" title="Ir a la página de inicio">Banco La Vanguardia</a></h1>
 </header>
 
 <div class="container">
