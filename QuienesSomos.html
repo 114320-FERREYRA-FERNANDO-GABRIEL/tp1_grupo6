@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banco Ejemplo</title>
+    <link rel="stylesheet" href="Style/styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +13,7 @@
         }
         header {
             background-color: #07316d;
-            color: white;
+            color: rgb(255, 255, 255);
             padding: 20px;
             text-align: center;
         }
@@ -23,10 +24,13 @@
             margin: 20px 0;
         }
         footer {
+            position: fixed;
+            bottom: 0;
             background-color: #0047ab;
             color: white;
             text-align: center;
             padding: 10px 0;
+            width: 100%;
         }
         /* Estilos adicionales */
         h1 a {
@@ -88,8 +92,8 @@
     </div>
 </div>
 
-<footer>
-    <p> Banco La Vanguardia - 2024. </p>
+<footer class="footer">
+    <p>&copy; Banco La Vanguardia</p>
 </footer>
 
 </body>
