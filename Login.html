@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-     
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 CDN -->
     <link rel="stylesheet" href="Style/estilos.css">
     <link rel="stylesheet" href="Style/styles.css">
     <style>
@@ -22,17 +21,14 @@
         }
 
         input.is-invalid {
-            border: 1px red !important
+            border: 1px red !important;
         }
 
         input.is-valid {
-            border: 1px green;
+            border: 1px green !important;
         }
-
-       
     </style>
 </head>
-
 <body>
     <header class="header">
         <h1>Banco La Vanguardia</h1>
@@ -75,7 +71,13 @@
                 if (email === "alumnoCodo@tp.g6.ar" && clave === "123456") {
                     form.submit();
                 } else {
-                    alert("Usuario o clave incorrectos.");
+                    // Reemplazar alert con SweetAlert
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Usuario o clave incorrectos.',
+                        icon: 'error',
+                        confirmButtonText: 'Aceptar'
+                    });
                 }
             }
         });

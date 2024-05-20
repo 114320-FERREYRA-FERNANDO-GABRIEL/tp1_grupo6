@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 CDN -->
     <link rel="stylesheet" href="Style/style.css">
     <link rel="stylesheet" href="Style/styles.css">
     <style>
@@ -146,15 +146,25 @@
                 const apellido = $("#inputApellido").val();
                 localStorage.setItem("Nombre", nombre);
                 localStorage.setItem("Apellido", apellido);
-                alert("Se cargo con éxito");
-                form.submit();
+
+                // Reemplazar alert con SweetAlert
+                Swal.fire({
+                    title: '¡Éxito!',
+                    text: 'Se cargó con éxito.',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
             },
-        })
+        });
         let nombre = localStorage.getItem("Nombre");
         let apellido = localStorage.getItem("Apellido")
     </script>
 </body>
 <footer class="footer">
         <p>&copy; Banco La Vanguardia</p>
-    </footer>
+</footer>
 </html>
