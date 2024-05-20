@@ -13,7 +13,9 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+     
     <link rel="stylesheet" href="estilos/estilos.css">
+    <link rel="stylesheet" href="Style/styles.css">
     <style>
         label.is-invalid {
             color: red;
@@ -26,10 +28,20 @@
         input.is-valid {
             border: 1px green;
         }
+
+       
     </style>
 </head>
 
 <body>
+    <header class="header">
+        <h1>Banco La Vanguardia</h1>
+    </header>
+    <nav class="nav">
+        <ul>
+            <li><a href="Principal.html">Pagina principal</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <form action="MiCuenta.html" class="form" id="form">
             <h2>Iniciar Sesión</h2>
@@ -69,5 +81,7 @@
         });
     </script>
 </body>
-
+<footer class="footer">
+    <p>&copy; Banco La Vanguardia</p>
+</footer>
 </html>
