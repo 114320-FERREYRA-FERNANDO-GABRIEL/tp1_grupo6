@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
     background: radial-gradient(circle, #6DC5D1, #FDE49E);
 }
-
+/*header de la pagina principal - Foto Familia*/
 .header {
 
     background-image: url('Fondo.jpg');

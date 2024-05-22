@@ -1,0 +1,41 @@
+body{
+    background-color: rgb(44, 44, 44);
+}
+.container{
+    
+    display: flex;
+    justify-content: center;
+    
+    height: 100vh;
+    align-items: center;
+}
+.form{
+    border: 1px solid;
+    height: 70vh;
+    width: 400px;
+    border-radius: 10px;
+    display: block;
+    background-color: azure;
+    color: black;
+    
+}
+h2{
+    padding: 10px;
+    text-align: center;
+}
+.form input[type=text]{
+    width: 350px;
+    margin-left: 20px;
+}
+.form input[type=password]{
+    width: 350px;
+    margin-left: 20px;
+}
+.form label{
+    margin-left: 20px;
+}
+button{
+    width: 350px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
