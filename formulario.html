@@ -79,7 +79,7 @@
                     <input type="text" class="form-control" id="inputNombre" placeholder="First Name" name="nombre">
                 </div>
                 <div class="col-md-6">
-                    <input type="password" class="form-control" id="inputApellido" placeholder="Last Name" name="apellido">
+                    <input type="text" class="form-control" id="inputApellido" placeholder="Last Name" name="apellido">
                 </div>
                 <div class="col-12">
                     <input type="email" class="form-control" id="inputAddress" placeholder="Email Address" name="email">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <div class="col-12 d-flex justify-content-between">
-                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <button type="submit" class="btn btn-primary" id="guardarCambios" disabled>Guardar Cambios</button>
                     <!-- Botón Cancelar -->
                     <button class="btn btn-primary" onclick="window.location.href='Principal.html'">Cancelar</button>
                 </div>
@@ -116,52 +116,59 @@
         </div>
     </section>
     <script>
-        $("#formulario").validate({
-            rules: {
-                nombre: { required: true },
-                apellido: { required: true },
-                email: { required: true, email: true },
-                direccion: { required: true },
-                pais: { required: true },
-                region: { required: true },
-                ciudad: { required: true },
-                postal: { required: true, minlength: 4 },
-                checkAcepto: { required: true }
-            },
-            messages: {
-                nombre: { required: "Enter a first name." },
-                apellido: { required: "Enter a last name." },
-                email: { required: "Enter an email", email: "enter a valid email" },
-                direccion: { required: "Enter an address" },
-                pais: { required: "Enter a country" },
-                region: { required: "Enter a region" },
-                ciudad: { required: "Enter a city" },
-                postal: { required: "Enter a zip/postal" },
-                checkAcepto: { required: "Por favor, acepte guardar sus datos." }
-            },
-            errorClass: "is-invalid",
-            validClass: "is-valid",
-            submitHandler: function (form) {
-                const nombre = $("#inputNombre").val();
-                const apellido = $("#inputApellido").val();
-                localStorage.setItem("Nombre", nombre);
-                localStorage.setItem("Apellido", apellido);
+        $(document).ready(function () {
+            $('#checkAcepto').change(function () {
+                $('#guardarCambios').prop('disabled', !this.checked);
+            });
 
-                // Reemplazar alert con SweetAlert
-                Swal.fire({
-                    title: '¡Éxito!',
-                    text: 'Se cargó con éxito.',
-                    icon: 'success',
-                    confirmButtonText: 'Aceptar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        form.submit();
-                    }
-                });
-            },
+            $("#formulario").validate({
+                rules: {
+                    nombre: { required: true },
+                    apellido: { required: true },
+                    email: { required: true, email: true },
+                    direccion: { required: true },
+                    pais: { required: true },
+                    region: { required: true },
+                    ciudad: { required: true },
+                    postal: { required: true, minlength: 4 },
+                    checkAcepto: { required: true }
+                },
+                messages: {
+                    nombre: { required: "Enter a first name." },
+                    apellido: { required: "Enter a last name." },
+                    email: { required: "Enter an email", email: "enter a valid email" },
+                    direccion: { required: "Enter an address" },
+                    pais: { required: "Enter a country" },
+                    region: { required: "Enter a region" },
+                    ciudad: { required: "Enter a city" },
+                    postal: { required: "Enter a zip/postal" },
+                    checkAcepto: { required: "Por favor, acepte guardar sus datos." }
+                },
+                errorClass: "is-invalid",
+                validClass: "is-valid",
+                submitHandler: function (form) {
+                    const nombre = $("#inputNombre").val();
+                    const apellido = $("#inputApellido").val();
+                    localStorage.setItem("Nombre", nombre);
+                    localStorage.setItem("Apellido", apellido);
+
+                    // Reemplazar alert con SweetAlert
+                    Swal.fire({
+                        title: '¡Éxito!',
+                        text: 'Se cargó con éxito.',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                },
+            });
+
+            let nombre = localStorage.getItem("Nombre");
+            let apellido = localStorage.getItem("Apellido");
         });
-        let nombre = localStorage.getItem("Nombre");
-        let apellido = localStorage.getItem("Apellido")
     </script>
 </body>
 <footer class="footer">

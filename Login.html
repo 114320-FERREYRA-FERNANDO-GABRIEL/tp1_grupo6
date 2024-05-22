@@ -39,7 +39,7 @@
         </ul>
     </nav>
     <div class="container">
-        <form action="MiCuenta.html" class="form" id="form">
+        <form class="form" id="form">
             <h2>Iniciar Sesión</h2>
             <div class="mb-3">
                 <label for="inputEmail" class="form-label">Email</label>
@@ -69,9 +69,19 @@
                 let clave = document.getElementById("inputClave").value;
 
                 if (email === "alumnoCodo@tp.g6.ar" && clave === "123456") {
-                    form.submit();
+                    // Mostrar SweetAlert de bienvenida y redirigir con email en URL
+                    Swal.fire({
+                        title: '¡Bienvenido!',
+                        text: `Bienvenido ${email}`,
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = `MiCuenta.html?email=${email}`;
+                        }
+                    });
                 } else {
-                    // Reemplazar alert con SweetAlert
+                    // Mostrar SweetAlert de error
                     Swal.fire({
                         title: 'Error',
                         text: 'Usuario o clave incorrectos.',
