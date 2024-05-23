@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +19,8 @@
     <style>
         /* Agregamos el color de fondo al body */
         body {
-            background-color: #e6f3ff; /* Azul claro */
+            background-color: #e6f3ff;
+            /* Azul claro */
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -49,17 +51,22 @@
         }
 
         .formulario {
-            background-color: white; /* Fondo blanco para el formulario */
+            background-color: white;
+            /* Fondo blanco para el formulario */
             padding: 20px;
             border-radius: 10px;
-            width: 80%; /* Ancho del formulario */
-            max-width: 400px; /* Ancho máximo del formulario */
+            width: 80%;
+            /* Ancho del formulario */
+            max-width: 400px;
+            /* Ancho máximo del formulario */
         }
 
         /* Estilos para los botones */
         .btn {
-            width: 49%; /* Ancho de los botones */
-            margin-right: 2%; /* Espacio entre los botones */
+            width: 49%;
+            /* Ancho de los botones */
+            margin-right: 2%;
+            /* Espacio entre los botones */
         }
     </style>
 </head>
@@ -85,10 +92,18 @@
                     <input type="email" class="form-control" id="inputAddress" placeholder="Email Address" name="email">
                 </div>
                 <div class="col-12">
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line" name="direccion">
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line"
+                        name="direccion">
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="inputCity" placeholder="Country" name="pais">
+                    <select class="form-select" id="inputPais" name="pais">
+                        <option value="">Select Country</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Perú">Perú</option>
+                        <option value="Uruguay">Uruguay</option>
+                    </select>
                 </div>
                 <div class="col-md-6">
                     <input type="text" class="form-control " id="inputZip" placeholder="Country/Region" name="region">
@@ -117,61 +132,42 @@
     </section>
     <script>
         $(document).ready(function () {
+            // Función para verificar el estado del checkbox
+            function verificarEstadoCheckbox() {
+                if ($('#checkAcepto').is(':checked')) {
+                    $('#guardarCambios').prop('disabled', false);
+                } else {
+                    $('#guardarCambios').prop('disabled', true);
+                }
+            }
+
+            // Llamamos a la función al cargar la página para inicializar el estado del botón
+            verificarEstadoCheckbox();
+
+            // Evento change para el checkbox
             $('#checkAcepto').change(function () {
-                $('#guardarCambios').prop('disabled', !this.checked);
+                // Llamamos a la función para verificar el estado del checkbox
+                verificarEstadoCheckbox();
             });
 
-            $("#formulario").validate({
-                rules: {
-                    nombre: { required: true },
-                    apellido: { required: true },
-                    email: { required: true, email: true },
-                    direccion: { required: true },
-                    pais: { required: true },
-                    region: { required: true },
-                    ciudad: { required: true },
-                    postal: { required: true, minlength: 4 },
-                    checkAcepto: { required: true }
-                },
-                messages: {
-                    nombre: { required: "Enter a first name." },
-                    apellido: { required: "Enter a last name." },
-                    email: { required: "Enter an email", email: "enter a valid email" },
-                    direccion: { required: "Enter an address" },
-                    pais: { required: "Enter a country" },
-                    region: { required: "Enter a region" },
-                    ciudad: { required: "Enter a city" },
-                    postal: { required: "Enter a zip/postal" },
-                    checkAcepto: { required: "Por favor, acepte guardar sus datos." }
-                },
-                errorClass: "is-invalid",
-                validClass: "is-valid",
-                submitHandler: function (form) {
-                    const nombre = $("#inputNombre").val();
-                    const apellido = $("#inputApellido").val();
-                    localStorage.setItem("Nombre", nombre);
-                    localStorage.setItem("Apellido", apellido);
+            // Evento submit del formulario
+            $('#formulario').submit(function (event) {
+                event.preventDefault(); // Evita que se envíe el formulario de manera convencional
 
-                    // Reemplazar alert con SweetAlert
-                    Swal.fire({
-                        title: '¡Éxito!',
-                        text: 'Se cargó con éxito.',
-                        icon: 'success',
-                        confirmButtonText: 'Aceptar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            form.submit();
-                        }
-                    });
-                },
+                // Mostrar Sweet Alert
+                Swal.fire({
+                    title: 'Usuario registrado',
+                    text: '¡Registro exitoso!',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                });
             });
-
-            let nombre = localStorage.getItem("Nombre");
-            let apellido = localStorage.getItem("Apellido");
         });
     </script>
-</body>
-<footer class="footer">
+    <footer class="footer">
         <p>&copy; Banco La Vanguardia</p>
-</footer>
+
+    </footer>
+</body>
+
 </html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quienes Somos</title>
+    <link rel="stylesheet" href="Style/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; /* Establece una altura mínima para el cuerpo */
+            position: relative; /* Establece la posición relativa para el cuerpo */
+        }
+        header {
+            background-color: #07316d;
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            text-align: center;
+        }
+        .carousel-item {
+            height: 60vh;
+            min-height: 300px;
+            background: no-repeat center center scroll;
+            background-size: cover;
+        }
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #0047ab;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            position: absolute; /* Establece la posición absoluta para el footer */
+            bottom: 0; /* Coloca el footer al fondo */
+        }
+        /* Estilos adicionales */
+        h1 a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+        }
+        h1 a:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        h1 a::after {
+            content: attr(title);
+            position: absolute;
+            left: 50%;
+            bottom: -30px;
+            transform: translateX(-50%);
+            background-color: #07316d;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s;
+        }
+        h1 a:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><a href="Principal.html" title="Ir a la página de inicio">Banco La Vanguardia</a></h1>
+</header>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image: url('Imagenes/historia.jpg');">
+            <div class="d-flex h-100 align-items-center justify-content-center">
+                <div class="carousel-caption">
+                    <h2>Sobre Nosotros</h2>
+                    <p>En banco La Vangardia, ofrecemos soluciones financieras a nuestros clientes. Con años de experiencia en el sector y nuestra dedicación y compromiso en la excelencia, nuestros clientes son nuestra mejor carta de presentación.</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('Imagenes/actividades-financieras.png');">
+            <div class="d-flex h-100 align-items-center justify-content-center">
+                <div class="carousel-caption">
+                    <h2>Servicios</h2>
+                    <p>Ofrecemos una variedad de servicios financieros diseñados para satisfacer tus necesidades, incluyendo cuentas de ahorro, préstamos personales, y asesoramiento financiero.</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('Imagenes/testimonios.webp');">
+            <div class="d-flex h-100 align-items-center justify-content-center">
+                <div class="carousel-caption">
+                    <h2>Testimonios</h2>
+                    <p>"Banco La Vanguardia ha sido mi banco de confianza durante años. Su servicio al cliente es excepcional." - Monica Bustamante</p>
+                    <p>"Gracias a Banco La Vanguardia, pude obtener un préstamo y terminar mi casa." - Agustina Suarez</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('Imagenes/Propietario.jpg');">
+            <div class="d-flex h-100 align-items-center justify-content-center">
+                <div class="carousel-caption">
+                    <h2>Contacto</h2>
+                    <p>Para más información, por favor contáctanos a través de nuestro número de teléfono 0800 000 000 o acercandote a una de nuestras sucursales de Lunes a Viernes de 8 a 13hs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<footer class="footer">
+    <p>&copy; Banco La Vanguardia</p>
+</footer>
+
+</body>
+</html>
+
