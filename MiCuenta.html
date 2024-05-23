@@ -4,56 +4,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Cuenta</title>
+    <title>Mi Cuenta - Banco La Vanguardia</title>
     <link rel="stylesheet" href="Style/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Estilos adicionales */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #07316d;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .nav {
+            background-color: #0047ab;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav ul li {
+            margin: 0 10px;
+        }
+
+        .nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .custom-content {
+            height: 200px;
+            border-radius: 5px;
+            background-image: linear-gradient(to bottom right, #ff7e5f, #feb47b);
+            animation: fadeInOut 4s infinite alternate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .custom-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajusta el tamaño de la imagen sin distorsionarla */
+            border-radius: 5px;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .sidebar img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: #0047ab;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
 </head>
 
 <body>
     <header class="header">
-        <h1>Banco La Vanguardia</h1>
+        <h1>Banco La Vanguardia - Mi Cuenta</h1>
     </header>
     <nav class="nav">
         <ul>
-            <li><a href="#"></a></li>
-            <li><a href="Principal.html">Principal</a></li>
+            <li><a href="Principal.html">Inicio</a></li>
+            <li><a href="#Movimientos">Mis Movimientos</a></li>
+            <li><a href="#PlazosFijos">Mis Plazos Fijos</a></li>
+            <li><a href="#CajaAhorro">Caja de Ahorro</a></li>
         </ul>
     </nav>
-    <main class="main-content">
-        <section class="content">
-            <article class="article">B</article>
-            <article class="article">Ahora Alquilar es mas facil,
-                con un par de datos puedes estar viviendo
-                en la casa de tus sueños</article>
-            <article class="article">Artículo 3</article>
-        </section>
-        <aside class="sidebar">
-            <img src="Imagenes/BancoPrestamos.jpg"
-                alt="Una Imagen que te ofrece un prestamo online, seguro y gratuito">
-            <img src="Imagenes/Propietario.jpg" alt="Una Imagen con la pregunta de ¡que es ser Propietario?">
-            <img src="Imagenes/Seguro de vida.jpeg" alt="Una image para pedir un seguro de vida">
-        </aside>
+    <main class="main-content animate__animated animate__fadeInUp">
+        <div class="custom-content animate__animated animate__fadeInUp">
+            <img src="Imagenes/transacciones.jpg" alt="Mis Movimientos">
+        </div>
+        <div class="custom-content animate__animated animate__fadeInUp">
+            <img src="Imagenes/plazoFijo.webp" alt="Mis Plazos Fijos">
+        </div>
+        <div class="custom-content animate__animated animate__fadeInUp">
+            <img src="Imagenes/cajaDeAhorro.jpg" alt="Caja de Ahorro">
+        </div>
     </main>
+    <aside class="sidebar">
+        <img src="Imagenes/BancoPrestamos.jpg" alt="Una Imagen que te ofrece un prestamo online, seguro y gratuito">
+        <img src="Imagenes/Propietario.jpg" alt="Una Imagen con la pregunta de ¡que es ser Propietario?">
+        <img src="Imagenes/Seguro de vida.jpeg" alt="Una image para pedir un seguro de vida">
+    </aside>
     <footer class="footer">
         <p>&copy; Banco La Vanguardia</p>
     </footer>
-
-    <script>
-        // Obtener el parámetro 'email' de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const email = urlParams.get('email');
-
-        // Insertar el correo electrónico en la lista de navegación
-        const navList = document.querySelector('.nav ul');
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `<a href="#">Mi Cuenta - ${email}</a>`;
-        navList.appendChild(listItem);
-    </script>
 </body>
 
 </html>
+
