@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="Style/style.css">
     <link rel="stylesheet" href="Style/styles.css">
     <style>
-        /* Agregamos el color de fondo al body */
+        
         body {
             background-color: #e6f3ff;
             /* Azul claro */
@@ -42,7 +42,7 @@
             color: blue;
         }
 
-        /* Estilos para centrar el formulario */
+       
         .contenedor {
             display: flex;
             justify-content: center;
@@ -52,21 +52,21 @@
 
         .formulario {
             background-color: white;
-            /* Fondo blanco para el formulario */
+          
             padding: 20px;
             border-radius: 10px;
             width: 80%;
-            /* Ancho del formulario */
+          
             max-width: 400px;
-            /* Ancho máximo del formulario */
+           
         }
 
-        /* Estilos para los botones */
+      
         .btn {
             width: 49%;
-            /* Ancho de los botones */
+          
             margin-right: 2%;
-            /* Espacio entre los botones */
+          
         }
     </style>
 </head>
@@ -124,7 +124,7 @@
                 </div>
                 <div class="col-12 d-flex justify-content-between">
                     <button type="submit" class="btn btn-primary" id="guardarCambios" disabled>Guardar Cambios</button>
-                    <!-- Botón Cancelar -->
+                    
                     <button class="btn btn-primary" onclick="window.location.href='index.html'">Cancelar</button>
                 </div>
             </form>
@@ -132,7 +132,7 @@
     </section>
     <script>
         $(document).ready(function () {
-            // Función para verificar el estado del checkbox
+            
             function verificarEstadoCheckbox() {
                 if ($('#checkAcepto').is(':checked')) {
                     $('#guardarCambios').prop('disabled', false);
@@ -141,20 +141,20 @@
                 }
             }
 
-            // Llamamos a la función al cargar la página para inicializar el estado del botón
+           
             verificarEstadoCheckbox();
 
-            // Evento change para el checkbox
+          
             $('#checkAcepto').change(function () {
-                // Llamamos a la función para verificar el estado del checkbox
+                
                 verificarEstadoCheckbox();
             });
 
-            // Evento submit del formulario
+            
             $('#formulario').submit(function (event) {
-                event.preventDefault(); // Evita que se envíe el formulario de manera convencional
+                event.preventDefault(); 
 
-                // Mostrar Sweet Alert
+              
                 Swal.fire({
                     title: 'Usuario registrado',
                     text: '¡Registro exitoso!',
